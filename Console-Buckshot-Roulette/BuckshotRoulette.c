@@ -11,6 +11,7 @@ int roundNum = 1;
 int shells = 2;
 int playerHP = 2;
 int dealerHP = 2;
+int howMamyItems = 3;
 
 int blankShell;
 int liveShell;
@@ -123,7 +124,6 @@ void RoundOne()
         if(dealerHP <= 0)
         {
             roundNum++;
-            printf("\n%d ", roundNum);
             playerHP = 4;
             dealerHP = 4;
             break;
@@ -161,7 +161,6 @@ void RoundTwo()
         if(dealerHP <= 0)
         {
             roundNum++;
-            printf("\n%d ", roundNum);
             playerHP = 6;
             dealerHP = 6;
             break;
@@ -241,6 +240,8 @@ void Reload()
 
 void PlayerTurn()
 {
+    printf("당신의 차례!\n\n");
+
     ShowPlayerItem();
 
     if(usingItem == 0)
@@ -271,7 +272,59 @@ void DealerTurn()
 
 void DrawItem()
 {
+    srand(time(NULL));
 
+    int playerGetItem = 1;
+    int playerItemIndex = 1;
+
+    int dealerGetItem = 1;
+    int dealerItemIndex = 1;
+
+    if(playerGetItem >= howMamyItems)
+    {
+        playerGetItem = 1;
+    }
+    
+    if(dealerGetItem >= howMamyItems)
+    {
+        dealerGetItem = 1;
+    }
+    
+    while(playerGetItem < howMamyItems)
+    {
+        int itemIndex = rand() % 6;
+
+        if(playerItem[playerItemIndex] == NULL)
+        {
+            playerItem[playerItemIndex] = totalItem[itemIndex];
+            playerGetItem++;
+        }
+
+        playerItemIndex++;
+
+        if(playerItemIndex > 8)
+        {
+            playerItemIndex = 1;
+        }
+    }
+
+    while(dealerGetItem < howMamyItems)
+    {
+        int itemIndex = rand() % 6;
+
+        if(dealerItem[dealerItemIndex] == NULL)
+        {
+            dealerItem[dealerItemIndex] = totalItem[itemIndex];
+            dealerGetItem++;
+        }
+
+        dealerItemIndex++;
+
+        if(dealerItemIndex > 8)
+        {
+            dealerItemIndex = 1;
+        }
+    }
 }
 
 void ShowPlayerItem()
@@ -282,7 +335,7 @@ void ShowPlayerItem()
     {
         if(playerItem[i] == NULL)
         {
-            printf("이하 아이템 없음.\n");
+            printf("\n이하 아이템 없음.\n");
             break;
         }
 
@@ -305,7 +358,7 @@ void ShowDealerItem()
             break;
         }
 
-        printf("%d: %s", i, dealerItem[i]);
+        printf("\n%d: %s\n", i, dealerItem[i]);
     }
 }
 
