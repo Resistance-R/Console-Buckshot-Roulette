@@ -3,8 +3,10 @@
 #include <stdlib.h>
 #include <time.h>
 #include <unistd.h>
+#include <string.h>
 
 bool gameIsStarted = false;
+bool alreadyDead = false;
 char playerName[6] = "";
 
 int roundNum = 1;
@@ -12,6 +14,10 @@ int shells = 2;
 int playerHP = 2;
 int dealerHP = 2;
 int howMamyItems = 3;
+
+int shotgunDmg = 1;
+bool isCut = false;
+bool isHandcuffs = false;
 
 int blankShell;
 int liveShell;
@@ -40,6 +46,10 @@ void ReadyToFire();
 void Fire(int dealerOrPlayer);
 void DealerFire(int dealerOrPlayer);
 void ShotgunPumping(int shotgun[], int index);
+
+bool IsPlayerFull();
+bool IsDealerFull();
+void UseItem();
 
 void RoundOne();
 void RoundTwo();
@@ -148,12 +158,12 @@ void RoundTwo()
             Reload();
         }
 
-        if(playerHP > 0 && isPlayerTurn)
+        if(playerHP > 0 && isPlayerTurn && !isHandcuffs)
         {
             PlayerTurn();
         }
 
-        else if(dealerHP > 0 && !isPlayerTurn)
+        else if(dealerHP > 0 && !isPlayerTurn && !isHandcuffs)
         {
             DealerTurn();
         }
@@ -244,9 +254,17 @@ void PlayerTurn()
 
     ShowPlayerItem();
 
-    if(usingItem == 0)
+    printf("사용할 아이템(숫자로 입력)\n");
+    scanf("%d", &usingItem);
+
+    if (usingItem == 0)
     {
         ReadyToFire();
+    }
+
+    if(usingItem != 0)
+    {
+        UseItem();
     }
 }
 
@@ -270,9 +288,37 @@ void DealerTurn()
     }
 }
 
+bool IsPlayerFull()
+{
+    for(int i = 0; i < 10; i++)
+    {
+        if(playerItem[i] == NULL)
+        {
+            return false;
+        }
+    }
+
+    return true;
+}
+
+bool IsDealerFull()
+{
+    for (int i = 0; i < 10; i++)
+    {
+        if (dealerItem[i] == NULL)
+        {
+            return false;
+        }
+    }
+
+    return true;
+}
+
 void DrawItem()
 {
     srand(time(NULL));
+
+    int numOfMaxItem = 9;
 
     int playerGetItem = 1;
     int playerItemIndex = 1;
@@ -280,9 +326,15 @@ void DrawItem()
     int dealerGetItem = 1;
     int dealerItemIndex = 1;
     
-    while(playerGetItem < howMamyItems)
+    while(playerGetItem < howMamyItems && !IsPlayerFull())
     {
         int itemIndex = rand() % 6;
+
+        if(IsPlayerFull())
+        {
+            printf("Dealer: 공간이 없군. 아이템을 줄 수 없어.\n");
+            break;
+        }
 
         if (playerGetItem >= howMamyItems)
         {
@@ -304,9 +356,15 @@ void DrawItem()
         }
     }
 
-    while(dealerGetItem < howMamyItems)
+    while(dealerGetItem < howMamyItems && !IsDealerFull())
     {
         int itemIndex = rand() % 6;
+
+        if (IsDealerFull())
+        {
+            printf("Dealer: 공간이 없군.\n");
+            break;
+        }
 
         if (dealerGetItem >= howMamyItems)
         {
@@ -343,9 +401,6 @@ void ShowPlayerItem()
 
         printf("\n%d: %s\n", i, playerItem[i]);
     }
-
-    printf("사용할 아이템(숫자로 입력)\n");
-    scanf("%d", &usingItem);
 }
 
 void ShowDealerItem()
@@ -364,11 +419,89 @@ void ShowDealerItem()
     }
 }
 
+void UseItem()
+{
+    int index = 0;
+
+    if(strcmp(playerItem[usingItem], "돋보기") == 0)
+    {
+        if(shotgun[0] == 0)
+        {
+            printf("\n공탄이 장전되어 있다.\n");
+        }
+
+        if (shotgun[0] == 1)
+        {
+            printf("\n실탄이 장전되어 있다.\n");
+        }
+    }
+
+    if(strcmp(playerItem[usingItem], "캔 맥주") == 0)
+    {
+        if (shotgun[0] == 0)
+        {
+            printf("\n공탄이 튀어나왔다.\n");
+        }
+
+        if (shotgun[0] == 1)
+        {
+            printf("\n실탄이 튀어나왔다.\n");
+        }
+
+        ShotgunPumping(shotgun, index);
+    }
+
+    if(strcmp(playerItem[usingItem], "톱") == 0)
+    {
+        printf("\n총열을 톱으로 잘랐다.\n");
+        isCut = true;
+    }
+
+    if(strcmp(playerItem[usingItem], "담배") == 0)
+    {
+        playerHP++;
+
+        if(roundNum == 2 && playerHP >= 4)
+        {
+            playerHP--;
+        }
+
+        if(roundNum == 3)
+        {
+            if (playerHP >= 6)
+            {
+                playerHP--;
+            }
+
+            if(playerHP <= 2)
+            {
+                playerHP--;
+            }
+        }
+
+        printf("\nDealer's Life Points: %d | %s's Life Points: %d\n\n", dealerHP, playerName, playerHP);
+    }
+
+    if(strcmp(playerItem[usingItem], "수갑") == 0)
+    {
+        isHandcuffs = true;
+    }
+
+    if(playerItem[usingItem] == NULL)
+    {
+        printf("아이템이 없다.");
+    }
+
+    playerItem[usingItem] = NULL;
+
+    return;
+}
+
 void ReadyToFire()
 {
     printf("스스로에게 쏘려면 0을, 딜러에게 쏘려면 1을 누르시오.\n");
     scanf("%d", &shootToWho);
-
+    
     Fire(shootToWho);
 }
 
@@ -378,6 +511,23 @@ void Fire(int dealerOrPlayer)
     int dealer = 1;
 
     int index = 0;
+    int howManyTurn = 1;
+
+    if(isCut)
+    {
+        shotgunDmg = 2;
+    }
+
+    if(!isCut)
+    {
+        shotgunDmg = 1;
+    }
+
+    if(howManyTurn >= 3)
+    {
+        howManyTurn = 1;
+        isHandcuffs = false;
+    }
 
     if(shotgun[0] == 0 && dealerOrPlayer == player)
     {
@@ -385,13 +535,15 @@ void Fire(int dealerOrPlayer)
         ShotgunPumping(shotgun, index);
 
         isPlayerTurn = true;
+        isCut = false;
+        howManyTurn++;
     }
 
     else if(shotgun[0] == 1 && dealerOrPlayer == player)
     {
         printf("\n탕!\n(격발됨!)\n");
 
-        playerHP--;
+        playerHP -= shotgunDmg;
 
         printf("Dealer's Life Points: %d | %s's Life Points: %d\n\n", dealerHP, playerName, playerHP);
 
@@ -403,26 +555,33 @@ void Fire(int dealerOrPlayer)
         }
 
         isPlayerTurn = false;
+        isCut = false;
+        howManyTurn++;
     }
 
     else if(shotgun[0] == 0 && dealerOrPlayer == dealer)
     {
         printf("\n틱!\n(격발되지 않음)\n");
         ShotgunPumping(shotgun, index);
+
         isPlayerTurn = false;
+        isCut = false;
+        howManyTurn++;
     }
 
     else if(shotgun[0] == 1 && dealerOrPlayer == dealer)
     {
         printf("\n탕!\n(격발됨!)\n");
 
-        dealerHP--;
+        dealerHP -= shotgunDmg;
 
         printf("Dealer's Life Points: %d | %s's Life Points: %d\n\n", dealerHP, playerName, playerHP);
 
         ShotgunPumping(shotgun, index);
 
         isPlayerTurn = false;
+        isCut = false;
+        howManyTurn++;
     }
 
 
@@ -436,6 +595,23 @@ void DealerFire(int dealerOrPlayer)
     int dealer = 1;
 
     int index = 0;
+    int howManyTurn = 1;
+
+    if (isCut)
+    {
+        shotgunDmg = 2;
+    }
+
+    if (!isCut)
+    {
+        shotgunDmg = 1;
+    }
+
+    if (howManyTurn >= 3)
+    {
+        howManyTurn = 1;
+        isHandcuffs = false;
+    }
 
     if(shotgun[0] == 0 && dealerOrPlayer == player)
     {
@@ -446,13 +622,15 @@ void DealerFire(int dealerOrPlayer)
         blankShell--;
 
         isPlayerTurn = true;
+        isCut = false;
+        howManyTurn++;
     }
 
     else if(shotgun[0] == 1 && dealerOrPlayer == player)
     {
         printf("\n탕!\n(격발됨!)\n");
 
-        playerHP--;
+        playerHP -= shotgunDmg;
 
         liveShell--;
 
@@ -466,6 +644,8 @@ void DealerFire(int dealerOrPlayer)
         }
 
         isPlayerTurn = true;
+        isCut = false;
+        howManyTurn++;
     }
 
     else if(shotgun[0] == 0 && dealerOrPlayer == dealer)
@@ -477,13 +657,15 @@ void DealerFire(int dealerOrPlayer)
         blankShell--;
 
         isPlayerTurn = false;
+        isCut = false;
+        howManyTurn++;
     }
 
     else if(shotgun[0] == 1 && dealerOrPlayer == dealer)
     {
         printf("\n탕!\n(격발됨!)\n");
 
-        dealerHP--;
+        dealerHP -= shotgunDmg;
 
         printf("Dealer's Life Points: %d | %s's Life Points: %d\n\n", dealerHP, playerName, playerHP);
 
@@ -492,6 +674,8 @@ void DealerFire(int dealerOrPlayer)
         liveShell--;
 
         isPlayerTurn = true;
+        isCut = false;
+        howManyTurn++;
     }
 
 
@@ -501,7 +685,7 @@ void DealerFire(int dealerOrPlayer)
 
 void Dead()
 {
-    if(roundNum <= 2)
+    if(roundNum <= 2 && !alreadyDead)
     {
         sleep(3);
 
@@ -524,6 +708,8 @@ void Dead()
         }
 
         Reload();
+
+        alreadyDead = true;
 
         return;
     }
