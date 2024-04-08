@@ -22,9 +22,9 @@ int shootToWho;
 bool isPlayerTurn = true;
 
 int shotgun[8] = {};
-char* totalItem[5] = {"¥„πË", "≈È", "ƒµ ∏∆¡÷", "µ∏∫∏±‚", "ºˆ∞©"};
-char* playerItem[9] = {"º¶∞«"};
-char* dealerItem[9] = {"º¶∞«"};
+char* totalItem[5] = {"Îã¥Î∞∞", "ÌÜ±", "Ï∫î Îß•Ï£º", "ÎèãÎ≥¥Í∏∞", "ÏàòÍ∞ë"};
+char* playerItem[9] = {"ÏÉ∑Í±¥"};
+char* dealerItem[9] = {"ÏÉ∑Í±¥"};
 
 void StartScene();
 void EnterPlayerName();
@@ -81,12 +81,12 @@ void StartScene()
     char start;
 
     printf("BUCKSHOT ROULETTE\n");
-    printf("'s'∏¶ ¿‘∑¬«ÿ Ω√¿€«œΩ Ω√ø¿.\n");
+    printf("'s'Î•º ÏûÖÎ†•Ìï¥ ÏãúÏûëÌïòÏã≠ÏãúÏò§.\n");
     scanf("%s", &start);
 
     while(start != 's')
     {
-        printf("'s'∏¶ ¿‘∑¬«ÿ Ω√¿€«œΩ Ω√ø¿.\n");
+        printf("'s'Î•º ÏûÖÎ†•Ìï¥ ÏãúÏûëÌïòÏã≠ÏãúÏò§.\n");
         scanf("%s", &start);
     }
 
@@ -100,7 +100,7 @@ void RoundOne()
 {
     EnterPlayerName();
 
-    printf("Dealer: √—æÀ¿∫ π´¿€¿ß∑Œ ¿Â¿¸µ»¥Ÿ≥◊.\n");
+    printf("Dealer: Ï¥ùÏïåÏùÄ Î¨¥ÏûëÏúÑÎ°ú Ïû•Ï†ÑÎêúÎã§ÎÑ§.\n");
 
     Reload();
 
@@ -135,9 +135,9 @@ void RoundOne()
 
 void RoundTwo()
 {
-    printf("Dealer: ¥ı ¿Áπ’∞‘ «ÿ ∫º±Ó.\n");
-    printf("Dealer: æ∆¿Ã≈€¿∫ √÷¥Î 8∞≥±Ó¡ˆ. ∞¢¿⁄ ¿Â¿¸ ¥Á 2∞≥æø πﬁ¥¬¥Ÿ.\n");
-    printf("Dealer: ∏∂¬˘∞°¡ˆ∑Œ √—æÀ¿∫ π´¿€¿ß∑Œ ¿Â¿¸µ«¡ˆ.\n");
+    printf("Dealer: Îçî Ïû¨Î∞åÍ≤å Ìï¥ Î≥ºÍπå.\n");
+    printf("Dealer: ÏïÑÏù¥ÌÖúÏùÄ ÏµúÎåÄ 8Í∞úÍπåÏßÄ. Í∞ÅÏûê Ïû•Ï†Ñ Îãπ 2Í∞úÏî© Î∞õÎäîÎã§.\n");
+    printf("Dealer: ÎßàÏ∞¨Í∞ÄÏßÄÎ°ú Ï¥ùÏïåÏùÄ Î¨¥ÏûëÏúÑÎ°ú Ïû•Ï†ÑÎêòÏßÄ.\n");
 
     Reload();
 
@@ -177,9 +177,9 @@ void RoundThree()
 
 void EnterPlayerName()
 {
-    printf("Dealer: ∞¢º≠ ∏’¿˙ æ≤∞Ì «œ¡ˆ. \n\n");
-    printf("... ∞Ëæ‡ø° µ˚∂Û '¿ª'¿« ∏µÁ Ω≈√ºø° ¥Î«— ±«∏Æ∏¶ ¥„∫∏π∞∑Œº≠\n ªÁæ˜¿⁄ '∞©'ø°∞‘ æÁµµ«ﬂ¿Ω¿ª »Æ¿Œ«œ∞Ì, ∫–∂ı¿« ø©¡ˆ∏¶ æ¯æ÷∞Ì¿⁄\n ¿Ã ∞¢º≠∏¶ ¿€º∫«‘.\n");
-    printf("∞©: Dealer, ¿ª: ");
+    printf("Dealer: Í∞ÅÏÑú Î®ºÏ†Ä Ïì∞Í≥† ÌïòÏßÄ. \n\n");
+    printf("... Í≥ÑÏïΩÏóê Îî∞Îùº 'ÏùÑ'Ïùò Î™®Îì† Ïã†Ï≤¥Ïóê ÎåÄÌïú Í∂åÎ¶¨Î•º Îã¥Î≥¥Î¨ºÎ°úÏÑú\n ÏÇ¨ÏóÖÏûê 'Í∞ë'ÏóêÍ≤å ÏñëÎèÑÌñàÏùåÏùÑ ÌôïÏù∏ÌïòÍ≥†, Î∂ÑÎûÄÏùò Ïó¨ÏßÄÎ•º ÏóÜÏï†Í≥†Ïûê\n Ïù¥ Í∞ÅÏÑúÎ•º ÏûëÏÑ±Ìï®.\n");
+    printf("Í∞ë: Dealer, ÏùÑ: ");
     scanf("%s", playerName);
     printf("\n\n");
 }
@@ -206,7 +206,7 @@ void Reload()
         shotgun[i] = 2;
     }
 
-    printf("\n\n¿Á¿Â¿¸!\n\n");
+    printf("\n\nÏû¨Ïû•Ï†Ñ!\n\n");
 
     srand(time(NULL));
 
@@ -231,16 +231,16 @@ void Reload()
     blankShell = blank;
     liveShell = live;
 
-    printf("∞¯≈∫: %dπﬂ, Ω«≈∫: %dπﬂ.\n", blank, live);
+    printf("Í≥µÌÉÑ: %dÎ∞ú, Ïã§ÌÉÑ: %dÎ∞ú.\n", blank, live);
 
 
-    //µπˆ±◊
+    //ÎîîÎ≤ÑÍ∑∏
     DebugFunc();
 }
 
 void PlayerTurn()
 {
-    printf("¥ÁΩ≈¿« ¬˜∑ !\n\n");
+    printf("ÎãπÏã†Ïùò Ï∞®Î°Ä!\n\n");
 
     ShowPlayerItem();
 
@@ -279,20 +279,16 @@ void DrawItem()
 
     int dealerGetItem = 1;
     int dealerItemIndex = 1;
-
-    if(playerGetItem >= howMamyItems)
-    {
-        playerGetItem = 1;
-    }
-    
-    if(dealerGetItem >= howMamyItems)
-    {
-        dealerGetItem = 1;
-    }
     
     while(playerGetItem < howMamyItems)
     {
         int itemIndex = rand() % 6;
+
+        if (playerGetItem >= howMamyItems)
+        {
+            playerGetItem = 1;
+            break;
+        }
 
         if(playerItem[playerItemIndex] == NULL)
         {
@@ -312,6 +308,12 @@ void DrawItem()
     {
         int itemIndex = rand() % 6;
 
+        if (dealerGetItem >= howMamyItems)
+        {
+            dealerGetItem = 1;
+            break;
+        }
+
         if(dealerItem[dealerItemIndex] == NULL)
         {
             dealerItem[dealerItemIndex] = totalItem[itemIndex];
@@ -329,32 +331,32 @@ void DrawItem()
 
 void ShowPlayerItem()
 {
-    printf("¥ÁΩ≈¿« æ∆¿Ã≈€: \n");
+    printf("ÎãπÏã†Ïùò ÏïÑÏù¥ÌÖú: \n");
 
     for(int i = 0; i < 10; i++)
     {
         if(playerItem[i] == NULL)
         {
-            printf("\n¿Ã«œ æ∆¿Ã≈€ æ¯¿Ω.\n");
+            printf("\nÏù¥Ìïò ÏïÑÏù¥ÌÖú ÏóÜÏùå.\n");
             break;
         }
 
         printf("\n%d: %s\n", i, playerItem[i]);
     }
 
-    printf("ªÁøÎ«“ æ∆¿Ã≈€(º˝¿⁄∑Œ ¿‘∑¬)\n");
+    printf("ÏÇ¨Ïö©Ìï† ÏïÑÏù¥ÌÖú(Ïà´ÏûêÎ°ú ÏûÖÎ†•)\n");
     scanf("%d", &usingItem);
 }
 
 void ShowDealerItem()
 {
-    printf("µÙ∑Ø æ∆¿Ã≈€: \n");
+    printf("ÎîúÎü¨ ÏïÑÏù¥ÌÖú: \n");
 
     for(int i = 0; i < 9; i++)
     {
         if(dealerItem[i] == NULL)
         {
-            printf("\n¿Ã«œ æ∆¿Ã≈€ æ¯¿Ω.\n");
+            printf("\nÏù¥Ìïò ÏïÑÏù¥ÌÖú ÏóÜÏùå.\n");
             break;
         }
 
@@ -364,7 +366,7 @@ void ShowDealerItem()
 
 void ReadyToFire()
 {
-    printf("Ω∫Ω∫∑Œø°∞‘ ΩÓ∑¡∏È 0¿ª, µÙ∑Øø°∞‘ ΩÓ∑¡∏È 1¿ª ¥©∏£Ω√ø¿.\n");
+    printf("Ïä§Ïä§Î°úÏóêÍ≤å ÏèòÎ†§Î©¥ 0ÏùÑ, ÎîúÎü¨ÏóêÍ≤å ÏèòÎ†§Î©¥ 1ÏùÑ ÎàÑÎ•¥ÏãúÏò§.\n");
     scanf("%d", &shootToWho);
 
     Fire(shootToWho);
@@ -379,7 +381,7 @@ void Fire(int dealerOrPlayer)
 
     if(shotgun[0] == 0 && dealerOrPlayer == player)
     {
-        printf("\n∆Ω!\n(∞›πﬂµ«¡ˆ æ ¿Ω)\n");
+        printf("\nÌã±!\n(Í≤©Î∞úÎêòÏßÄ ÏïäÏùå)\n");
         ShotgunPumping(shotgun, index);
 
         isPlayerTurn = true;
@@ -387,7 +389,7 @@ void Fire(int dealerOrPlayer)
 
     else if(shotgun[0] == 1 && dealerOrPlayer == player)
     {
-        printf("\n≈¡!\n(∞›πﬂµ !)\n");
+        printf("\nÌÉï!\n(Í≤©Î∞úÎê®!)\n");
 
         playerHP--;
 
@@ -405,14 +407,14 @@ void Fire(int dealerOrPlayer)
 
     else if(shotgun[0] == 0 && dealerOrPlayer == dealer)
     {
-        printf("\n∆Ω!\n(∞›πﬂµ«¡ˆ æ ¿Ω)\n");
+        printf("\nÌã±!\n(Í≤©Î∞úÎêòÏßÄ ÏïäÏùå)\n");
         ShotgunPumping(shotgun, index);
         isPlayerTurn = false;
     }
 
     else if(shotgun[0] == 1 && dealerOrPlayer == dealer)
     {
-        printf("\n≈¡!\n(∞›πﬂµ !)\n");
+        printf("\nÌÉï!\n(Í≤©Î∞úÎê®!)\n");
 
         dealerHP--;
 
@@ -424,7 +426,7 @@ void Fire(int dealerOrPlayer)
     }
 
 
-    //µπˆ±◊
+    //ÎîîÎ≤ÑÍ∑∏
     DebugFunc();
 }
 
@@ -437,7 +439,7 @@ void DealerFire(int dealerOrPlayer)
 
     if(shotgun[0] == 0 && dealerOrPlayer == player)
     {
-        printf("\n∆Ω!\n(∞›πﬂµ«¡ˆ æ ¿Ω)\n");
+        printf("\nÌã±!\n(Í≤©Î∞úÎêòÏßÄ ÏïäÏùå)\n");
 
         ShotgunPumping(shotgun, index);
 
@@ -448,7 +450,7 @@ void DealerFire(int dealerOrPlayer)
 
     else if(shotgun[0] == 1 && dealerOrPlayer == player)
     {
-        printf("\n≈¡!\n(∞›πﬂµ !)\n");
+        printf("\nÌÉï!\n(Í≤©Î∞úÎê®!)\n");
 
         playerHP--;
 
@@ -468,7 +470,7 @@ void DealerFire(int dealerOrPlayer)
 
     else if(shotgun[0] == 0 && dealerOrPlayer == dealer)
     {
-        printf("\n∆Ω!\n(∞›πﬂµ«¡ˆ æ ¿Ω)\n");
+        printf("\nÌã±!\n(Í≤©Î∞úÎêòÏßÄ ÏïäÏùå)\n");
 
         ShotgunPumping(shotgun, index);
 
@@ -479,7 +481,7 @@ void DealerFire(int dealerOrPlayer)
 
     else if(shotgun[0] == 1 && dealerOrPlayer == dealer)
     {
-        printf("\n≈¡!\n(∞›πﬂµ !)\n");
+        printf("\nÌÉï!\n(Í≤©Î∞úÎê®!)\n");
 
         dealerHP--;
 
@@ -493,7 +495,7 @@ void DealerFire(int dealerOrPlayer)
     }
 
 
-    //µπˆ±◊
+    //ÎîîÎ≤ÑÍ∑∏
     DebugFunc();
 }
 
@@ -503,11 +505,11 @@ void Dead()
     {
         sleep(3);
 
-        printf("\n\n\n\n\n???: ¡¶ººµø±‚∞° √Ê¿¸µ«æÓº≠ ¥Ÿ«‡¿Ãæﬂ, «œ∏∂≈Õ∏È ¡◊¿ª ª∑ «ﬂæÓ.\n");
+        printf("\n\n\n\n\n???: Ï†úÏÑ∏ÎèôÍ∏∞Í∞Ä Ï∂©Ï†ÑÎêòÏñ¥ÏÑú Îã§ÌñâÏù¥Ïïº, ÌïòÎßàÌÑ∞Î©¥ Ï£ΩÏùÑ Îªî ÌñàÏñ¥.\n");
 
         sleep(1);
 
-        printf("???: ∏Òº˚ ∞™¿∫ ø‹ªÛ¿∏∑Œ πﬁæ∆ µŒ¡ˆ. æ∆¡˜ π„¿∫ ±ÊæÓ. √Ê∫–»˜ «ÿ≥æ ºˆ ¿÷¿ª∞≈æﬂ.\n\n");
+        printf("???: Î™©Ïà® Í∞íÏùÄ Ïô∏ÏÉÅÏúºÎ°ú Î∞õÏïÑ ÎëêÏßÄ. ÏïÑÏßÅ Î∞§ÏùÄ Í∏∏Ïñ¥. Ï∂©Î∂ÑÌûà Ìï¥ÎÇº Ïàò ÏûàÏùÑÍ±∞Ïïº.\n\n");
 
         if(roundNum == 1)
         {
@@ -533,7 +535,7 @@ void ShotgunPumping(int shotgun[], int index)
     {
         if(i == 7)
         {
-            shotgun[i] == 2;
+            shotgun[i] = 2;
         }
 
         if(i < 7)
