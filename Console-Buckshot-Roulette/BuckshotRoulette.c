@@ -28,9 +28,9 @@ int shootToWho;
 bool isPlayerTurn = true;
 
 int shotgun[8] = {};
-char* totalItem[5] = {"ë‹´ë°°", "í†±", "ìº” ë§¥ì£¼", "ë‹ë³´ê¸°", "ìˆ˜ê°‘"};
-char* playerItem[9] = {"ìƒ·ê±´"};
-char* dealerItem[9] = {"ìƒ·ê±´"};
+char* totalItem[5] = {"´ã¹è", "Åé", "Äµ ¸ÆÁÖ", "µ¸º¸±â", "¼ö°©"};
+char* playerItem[9] = {"¼¦°Ç"};
+char* dealerItem[9] = {"¼¦°Ç"};
 
 void StartScene();
 void BUCKSHOT_ROULETTE();
@@ -97,12 +97,12 @@ void StartScene()
     char start;
 
     BUCKSHOT_ROULETTE();
-    printf("'s'ë¥¼ ì…ë ¥í•´ ì‹œì‘í•˜ì‹­ì‹œì˜¤.\n");
+    printf("'s'¸¦ ÀÔ·ÂÇØ ½ÃÀÛÇÏ½Ê½Ã¿À.\n");
     scanf("%s", &start);
 
     while(start != 's')
     {
-        printf("'s'ë¥¼ ì…ë ¥í•´ ì‹œì‘í•˜ì‹­ì‹œì˜¤.\n");
+        printf("'s'¸¦ ÀÔ·ÂÇØ ½ÃÀÛÇÏ½Ê½Ã¿À.\n");
         scanf("%s", &start);
     }
 
@@ -114,18 +114,18 @@ void StartScene()
 
 void BUCKSHOT_ROULETTE()
 {
-    printf("â–ˆâ–ˆâ–ˆ     â–„   â–„â–ˆâ–„    â–ˆ  â–ˆâ–€  â–„â–„â–„â–„â–„    â–„  â–ˆ â–ˆâ–ˆâ–ˆâ–ˆâ–„    â–„â–„â–„â–„â–€ \n");
-    printf("â–ˆ  â–ˆ     â–ˆ  â–ˆâ–€ â–€â–„  â–ˆâ–„â–ˆ   â–ˆ     â–€â–„ â–ˆ   â–ˆ â–ˆ   â–ˆ â–€â–€â–€ â–ˆ    \n");
-    printf("â–ˆ â–€ â–„ â–ˆ   â–ˆ â–ˆ   â–€  â–ˆâ–€â–„ â–„  â–€â–€â–€â–€â–„   â–ˆâ–ˆâ–€â–€â–ˆ â–ˆ   â–ˆ     â–ˆ    \n");
-    printf("â–ˆ  â–„â–€ â–ˆ   â–ˆ â–ˆâ–„  â–„â–€ â–ˆ  â–ˆ â–€â–„â–„â–„â–„â–€    â–ˆ   â–ˆ â–€â–ˆâ–ˆâ–ˆâ–ˆ    â–ˆ     \n");
-    printf("â–ˆâ–ˆâ–ˆ   â–ˆâ–„ â–„â–ˆ â–€â–ˆâ–ˆâ–ˆâ–€    â–ˆ               â–ˆ          â–€       \n");
-    printf("       â–€â–€â–€          â–€               â–€                  \n");
-    printf("â–ˆâ–„â–„â–„â–„ â–ˆâ–ˆâ–ˆâ–ˆâ–„   â–„   â–ˆ     â–„â–ˆâ–ˆâ–ˆâ–„     â–„â–„â–„â–„â–€ â–„â–„â–„â–„â–€ â–„â–ˆâ–ˆâ–ˆâ–„ \n");
-    printf("â–ˆ  â–„â–€ â–ˆ   â–ˆ    â–ˆ  â–ˆ     â–ˆâ–€   â–€ â–€â–€â–€ â–ˆ â–€â–€â–€ â–ˆ    â–ˆâ–€   â–€   \n");
-    printf("â–ˆâ–€â–€â–Œ  â–ˆ   â–ˆ â–ˆ   â–ˆ â–ˆ     â–ˆâ–ˆâ–„â–„       â–ˆ     â–ˆ    â–ˆâ–ˆâ–„â–„     \n");
-    printf("â–ˆ  â–ˆ  â–€â–ˆâ–ˆâ–ˆâ–ˆ â–ˆ   â–ˆ â–ˆâ–ˆâ–ˆâ–„  â–ˆâ–„   â–„â–€   â–ˆ     â–ˆ     â–ˆâ–„   â–„â–€  \n");
-    printf("â–ˆ          â–ˆâ–„ â–„â–ˆ     â–€ â–€â–ˆâ–ˆâ–ˆâ–€    â–€     â–€      â–€â–ˆâ–ˆâ–ˆâ–€    \n");
-    printf("â–€           â–€â–€â–€\n");
+    printf("???     ?   ???    ?  ??  ?????    ?  ? ?????    ????? \n");
+    printf("?  ?     ?  ?? ??  ???   ?     ?? ?   ? ?   ? ??? ?    \n");
+    printf("? ? ? ?   ? ?   ?  ??? ?  ?????   ????? ?   ?     ?    \n");
+    printf("?  ?? ?   ? ??  ?? ?  ? ??????    ?   ? ?????    ?     \n");
+    printf("???   ?? ?? ?????    ?               ?          ?       \n");
+    printf("       ???          ?               ?                  \n");
+    printf("????? ?????   ?   ?     ?????     ????? ????? ????? \n");
+    printf("?  ?? ?   ?    ?  ?     ??   ? ??? ? ??? ?    ??   ?   \n");
+    printf("????  ?   ? ?   ? ?     ????       ?     ?    ????     \n");
+    printf("?  ?  ????? ?   ? ????  ??   ??   ?     ?     ??   ??  \n");
+    printf("?          ?? ??     ? ?????    ?     ?      ?????    \n");
+    printf("?           ???\n");
 }
 
 void RoundOne()
@@ -136,7 +136,7 @@ void RoundOne()
     printf("\nRound 1.\n");
     sleep(2);
 
-    printf("Dealer: ì´ì•Œì€ ë¬´ì‘ìœ„ë¡œ ì¥ì „ë˜ì§€.\n");
+    printf("Dealer: ÃÑ¾ËÀº ¹«ÀÛÀ§·Î ÀåÀüµÇÁö.\n");
     sleep(1);
 
     Reload();
@@ -180,11 +180,11 @@ void RoundTwo()
     printf("\nRound 2.\n");
     sleep(2);
 
-    printf("Dealer: ë” ì¬ë°Œê²Œ í•´ ë³¼ê¹Œ.\n");
+    printf("Dealer: ´õ Àç¹Õ°Ô ÇØ º¼±î.\n");
     sleep(1);
-    printf("Dealer: ì•„ì´í…œì€ ìµœëŒ€ 8ê°œê¹Œì§€. ê°ì ì¥ì „ ë‹¹ 2ê°œì”© ë°›ëŠ”ë‹¤.\n");
+    printf("Dealer: ¾ÆÀÌÅÛÀº ÃÖ´ë 8°³±îÁö. °¢ÀÚ ÀåÀü ´ç 2°³¾¿ ¹Ş´Â´Ù.\n");
     sleep(1);
-    printf("Dealer: ë§ˆì°¬ê°€ì§€ë¡œ ì´ì•Œì€ ë¬´ì‘ìœ„ë¡œ ì¥ì „ë˜ì§€.\n");
+    printf("Dealer: ¸¶Âù°¡Áö·Î ÃÑ¾ËÀº ¹«ÀÛÀ§·Î ÀåÀüµÇÁö.\n");
     sleep(2);
 
     Reload();
@@ -235,13 +235,13 @@ void RoundThree()
     printf("\nFinal Round.\n");
     sleep(2);
 
-    printf("Dealer: ì´ì œ, ìŠ¹ë¶€ë¥¼ ê°€ë¦´ ë•Œë¡œêµ°.\n");
+    printf("Dealer: ÀÌÁ¦, ½ÂºÎ¸¦ °¡¸± ¶§·Î±º.\n");
     sleep(1);
-    printf("Dealer: ì¬ì„¸ë™ê¸°ë„, ìˆ˜í˜ˆë„. ê·¸ ì–´ë–¤ ë„ì›€ë„ ì—†ì–´.\n");
+    printf("Dealer: Àç¼¼µ¿±âµµ, ¼öÇ÷µµ. ±× ¾î¶² µµ¿òµµ ¾ø¾î.\n");
     sleep(1);
-    printf("Dealer: ì´ì œ ë„ˆì™€ ë‚˜. ëª¨ë‘ ì‚¶ê³¼ ì£½ìŒì˜ ì‘ë‘ ìœ„ì—ì„œ ì¶¤ì„ ì¶”ê²Œ ë˜ëŠ”ê±°ì•¼.\n");
+    printf("Dealer: ÀÌÁ¦ ³Ê¿Í ³ª. ¸ğµÎ »î°ú Á×À½ÀÇ ÀÛµÎ À§¿¡¼­ ÃãÀ» Ãß°Ô µÇ´Â°Å¾ß.\n");
     sleep(2);
-    printf("Dealer: ë£°ì€ ì•Œê³  ìˆê² ì§€.\n");
+    printf("Dealer: ·êÀº ¾Ë°í ÀÖ°ÚÁö.\n");
     sleep(2);
 
     Reload();
@@ -278,10 +278,10 @@ void RoundThree()
 
 void EnterPlayerName()
 {
-    printf("Dealer: ê°ì„œ ë¨¼ì € ì“°ê³  í•˜ì§€. \n\n");
+    printf("Dealer: °¢¼­ ¸ÕÀú ¾²°í ÇÏÁö. \n\n");
     sleep(1);
-    printf("... ê³„ì•½ì— ë”°ë¼ 'ì„'ì˜ ëª¨ë“  ì‹ ì²´ì— ëŒ€í•œ ê¶Œë¦¬ë¥¼ ë‹´ë³´ë¬¼ë¡œì„œ\n ì‚¬ì—…ì 'ê°‘'ì—ê²Œ ì–‘ë„í–ˆìŒì„ í™•ì¸í•˜ê³ , ë¶„ë€ì˜ ì—¬ì§€ë¥¼ ì—†ì• ê³ ì\n ì´ ê°ì„œë¥¼ ì‘ì„±í•¨.\n");
-    printf("ê°‘: Dealer, ì„: ");
+    printf("... °è¾à¿¡ µû¶ó 'À»'ÀÇ ¸ğµç ½ÅÃ¼¿¡ ´ëÇÑ ±Ç¸®¸¦ ´ãº¸¹°·Î¼­\n »ç¾÷ÀÚ '°©'¿¡°Ô ¾çµµÇßÀ½À» È®ÀÎÇÏ°í, ºĞ¶õÀÇ ¿©Áö¸¦ ¾ø¾Ö°íÀÚ\n ÀÌ °¢¼­¸¦ ÀÛ¼ºÇÔ.\n");
+    printf("°©: Dealer, À»: ");
     scanf("%s", playerName);
     printf("\n\n");
 }
@@ -308,7 +308,7 @@ void Reload()
         shotgun[i] = 2;
     }
 
-    printf("\n\nì¬ì¥ì „!\n\n");
+    printf("\n\nÀçÀåÀü!\n\n");
 
     srand(time(NULL));
 
@@ -333,16 +333,16 @@ void Reload()
     blankShell = blank;
     liveShell = live;
 
-    printf("ê³µíƒ„: %dë°œ, ì‹¤íƒ„: %dë°œ.\n", blank, live);
+    printf("°øÅº: %d¹ß, ½ÇÅº: %d¹ß.\n", blank, live);
 }
 
 void PlayerTurn()
 {
-    printf("ë‹¹ì‹ ì˜ ì°¨ë¡€!\n\n");
+    printf("´ç½ÅÀÇ Â÷·Ê!\n\n");
 
     ShowPlayerItem();
 
-    printf("ì‚¬ìš©í•  ì•„ì´í…œ(ìˆ«ìë¡œ ì…ë ¥)\n");
+    printf("»ç¿ëÇÒ ¾ÆÀÌÅÛ(¼ıÀÚ·Î ÀÔ·Â)\n");
     scanf("%d", &usingItem);
 
     if(usingItem == 0)
@@ -354,7 +354,7 @@ void PlayerTurn()
     {
         if(roundNum <= 1)
         {
-            printf("\nì•„ì´í…œì´ ì—†ë‹¤.\n");
+            printf("\n¾ÆÀÌÅÛÀÌ ¾ø´Ù.\n");
         }
 
         else
@@ -369,7 +369,7 @@ void DealerTurn()
     int player = 0;
     int dealer = 1;
 
-    printf("ë”œëŸ¬ì˜ ì°¨ë¡€!\n\n");
+    printf("µô·¯ÀÇ Â÷·Ê!\n\n");
 
     ShowDealerItem();
 
@@ -435,7 +435,7 @@ void DrawItem()
 
         if(IsPlayerFull())
         {
-            printf("Dealer: ê³µê°„ì´ ì—†êµ°. ì•„ì´í…œì„ ì¤„ ìˆ˜ ì—†ì–´.\n");
+            printf("Dealer: °ø°£ÀÌ ¾ø±º. ¾ÆÀÌÅÛÀ» ÁÙ ¼ö ¾ø¾î.\n");
             break;
         }
 
@@ -465,7 +465,7 @@ void DrawItem()
 
         if(IsDealerFull())
         {
-            printf("Dealer: ê³µê°„ì´ ì—†êµ°.\n");
+            printf("Dealer: °ø°£ÀÌ ¾ø±º.\n");
             break;
         }
 
@@ -501,13 +501,13 @@ void ResetItem()
 
 void ShowPlayerItem()
 {
-    printf("ë‹¹ì‹ ì˜ ì•„ì´í…œ: \n");
+    printf("´ç½ÅÀÇ ¾ÆÀÌÅÛ: \n");
 
     for(int i = 0; i < 9; i++)
     {
         if(playerItem[i] == NULL)
         {
-            printf("\n%d: (ì—†ìŒ)\n", i);
+            printf("\n%d: (¾øÀ½)\n", i);
         }
 
         else if(playerItem[i] != NULL)
@@ -520,13 +520,13 @@ void ShowPlayerItem()
 
 void ShowDealerItem()
 {
-    printf("ë”œëŸ¬ ì•„ì´í…œ: \n");
+    printf("µô·¯ ¾ÆÀÌÅÛ: \n");
 
     for(int i = 0; i < 9; i++)
     {
         if(dealerItem[i] == NULL)
         {
-            printf("\n%d: (ì—†ìŒ)\n", i);
+            printf("\n%d: (¾øÀ½)\n", i);
         }
 
         else if(dealerItem[i] != NULL)
@@ -540,48 +540,48 @@ void UseItem()
 {
     int index = 0;
 
-    if(strcmp(playerItem[usingItem], "ë‹ë³´ê¸°") == 0)
+    if(strcmp(playerItem[usingItem], "µ¸º¸±â") == 0)
     {
         if(shotgun[0] == 0)
         {
-            printf("\nê³µíƒ„ì´ ì¥ì „ë˜ì–´ ìˆë‹¤.\n");
+            printf("\n°øÅºÀÌ ÀåÀüµÇ¾î ÀÖ´Ù.\n");
         }
 
         if(shotgun[0] == 1)
         {
-            printf("\nì‹¤íƒ„ì´ ì¥ì „ë˜ì–´ ìˆë‹¤.\n");
+            printf("\n½ÇÅºÀÌ ÀåÀüµÇ¾î ÀÖ´Ù.\n");
         }
     }
 
-    if(strcmp(playerItem[usingItem], "ìº” ë§¥ì£¼") == 0)
+    if(strcmp(playerItem[usingItem], "Äµ ¸ÆÁÖ") == 0)
     {
         if(shotgun[0] == 0)
         {
-            printf("\nê³µíƒ„ì´ íŠ€ì–´ë‚˜ì™”ë‹¤.\n");
+            printf("\n°øÅºÀÌ Æ¢¾î³ª¿Ô´Ù.\n");
         }
 
         if(shotgun[0] == 1)
         {
-            printf("\nì‹¤íƒ„ì´ íŠ€ì–´ë‚˜ì™”ë‹¤.\n");
+            printf("\n½ÇÅºÀÌ Æ¢¾î³ª¿Ô´Ù.\n");
         }
 
         ShotgunPumping(shotgun, index);
     }
 
-    if(strcmp(playerItem[usingItem], "í†±") == 0)
+    if(strcmp(playerItem[usingItem], "Åé") == 0)
     {
-        printf("\nì´ì—´ì„ í†±ìœ¼ë¡œ ì˜ëë‹¤.\n");
+        printf("\nÃÑ¿­À» ÅéÀ¸·Î Àß¶ú´Ù.\n");
         isCut = true;
     }
 
-    if(strcmp(playerItem[usingItem], "ë‹´ë°°") == 0)
+    if(strcmp(playerItem[usingItem], "´ã¹è") == 0)
     {
-        printf("ë‹´ë°°ë¥¼ ì‚¬ìš©í–ˆë‹¤.\n");
+        printf("´ã¹è¸¦ »ç¿ëÇß´Ù.\n");
         playerHP++;
 
         if(roundNum == 2 && playerHP > 4)
         {
-            printf("í•˜ì§€ë§Œ ì´ë¯¸ ìµœëŒ€ ì²´ë ¥ì´ë‹¤.\n");
+            printf("ÇÏÁö¸¸ ÀÌ¹Ì ÃÖ´ë Ã¼·ÂÀÌ´Ù.\n");
             playerHP--;
         }
 
@@ -589,13 +589,13 @@ void UseItem()
         {
             if(playerHP > 6)
             {
-                printf("í•˜ì§€ë§Œ ì´ë¯¸ ìµœëŒ€ ì²´ë ¥ì´ë‹¤.\n");
+                printf("ÇÏÁö¸¸ ÀÌ¹Ì ÃÖ´ë Ã¼·ÂÀÌ´Ù.\n");
                 playerHP--;
             }
 
             if(playerHP <= 2)
             {
-                printf("Dealer: ìŠì—ˆë‚˜? ë” ì´ìƒì˜ ìˆ˜í˜ˆì€ ì—†ë‹¤ê³ .\n");
+                printf("Dealer: ÀØ¾ú³ª? ´õ ÀÌ»óÀÇ ¼öÇ÷Àº ¾ø´Ù°í.\n");
                 playerHP--;
             }
         }
@@ -603,15 +603,15 @@ void UseItem()
         printf("\nDealer's Life Points: %d | %s's Life Points: %d\n\n", dealerHP, playerName, playerHP);
     }
 
-    if(strcmp(playerItem[usingItem], "ìˆ˜ê°‘") == 0)
+    if(strcmp(playerItem[usingItem], "¼ö°©") == 0)
     {
-        printf("\nìˆ˜ê°‘ì„ ì‚¬ìš©í•˜ì˜€ë‹¤.\n");
+        printf("\n¼ö°©À» »ç¿ëÇÏ¿´´Ù.\n");
         isHandcuffs = true;
     }
 
     if(playerItem[usingItem] == NULL)
     {
-        printf("\nì•„ì´í…œì´ ì—†ë‹¤.\n");
+        printf("\n¾ÆÀÌÅÛÀÌ ¾ø´Ù.\n");
     }
 
     playerItem[usingItem] = NULL;
@@ -633,10 +633,10 @@ void DealerUseItem()
             continue;
         }
 
-        if(strcmp(dealerItem[i], "ë‹ë³´ê¸°") == 0)
+        if(strcmp(dealerItem[i], "µ¸º¸±â") == 0)
         {
-            printf("\në”œëŸ¬ëŠ” ë‹ë³´ê¸°ë¥¼ ì‚¬ìš©í–ˆë‹¤.\n");
-            printf("Dealer: ì°¸ í¥ë¯¸ë¡­êµ°...\n");
+            printf("\nµô·¯´Â µ¸º¸±â¸¦ »ç¿ëÇß´Ù.\n");
+            printf("Dealer: Âü Èï¹Ì·Ó±º...\n");
 
             sleep(2);
 
@@ -651,39 +651,39 @@ void DealerUseItem()
             }
         }
 
-        if(strcmp(dealerItem[i], "ìº” ë§¥ì£¼") == 0)
+        if(strcmp(dealerItem[i], "Äµ ¸ÆÁÖ") == 0)
         {
-            printf("\në”œëŸ¬ëŠ” ìº” ë§¥ì£¼ë¥¼ ì‚¬ìš©í–ˆë‹¤.\n");
+            printf("\nµô·¯´Â Äµ ¸ÆÁÖ¸¦ »ç¿ëÇß´Ù.\n");
 
             sleep(2);
 
             if(shotgun[0] == 0)
             {
-                printf("\nê³µíƒ„ì´ íŠ€ì–´ë‚˜ì™”ë‹¤.\n");
+                printf("\n°øÅºÀÌ Æ¢¾î³ª¿Ô´Ù.\n");
                 blankShell--;
             }
 
             if(shotgun[0] == 1)
             {
-                printf("\nì‹¤íƒ„ì´ íŠ€ì–´ë‚˜ì™”ë‹¤.\n");
+                printf("\n½ÇÅºÀÌ Æ¢¾î³ª¿Ô´Ù.\n");
                 liveShell--;
             }
 
             ShotgunPumping(shotgun, index);
         }
 
-        if(!isCut && strcmp(dealerItem[i], "í†±") == 0)
+        if(!isCut && strcmp(dealerItem[i], "Åé") == 0)
         {
-            printf("\në”œëŸ¬ëŠ” ì´ì—´ì„ í†±ìœ¼ë¡œ ì˜ëë‹¤.\n");
+            printf("\nµô·¯´Â ÃÑ¿­À» ÅéÀ¸·Î Àß¶ú´Ù.\n");
 
             isCut = true;
 
             sleep(2);
         }
 
-        if(dealerHP <= 3 && strcmp(dealerItem[i], "ë‹´ë°°") == 0)
+        if(dealerHP <= 3 && strcmp(dealerItem[i], "´ã¹è") == 0)
         {
-            printf("\në”œëŸ¬ëŠ” ë‹´ë°°ë¥¼ ì‚¬ìš©í–ˆë‹¤.\n");
+            printf("\nµô·¯´Â ´ã¹è¸¦ »ç¿ëÇß´Ù.\n");
 
             if(roundNum >= 3)
             {
@@ -710,9 +710,9 @@ void DealerUseItem()
             printf("\nDealer's Life Points: %d | %s's Life Points: %d\n\n", dealerHP, playerName, playerHP);
         }
 
-        if (!isHandcuffs && strcmp(dealerItem[i], "ìˆ˜ê°‘") == 0)
+        if (!isHandcuffs && strcmp(dealerItem[i], "¼ö°©") == 0)
         {
-            printf("\në”œëŸ¬ëŠ” ìˆ˜ê°‘ì„ ì‚¬ìš©í•˜ì˜€ë‹¤.\n");
+            printf("\nµô·¯´Â ¼ö°©À» »ç¿ëÇÏ¿´´Ù.\n");
 
             isHandcuffs = true;
 
@@ -727,7 +727,7 @@ void DealerUseItem()
 
 void ReadyToFire()
 {
-    printf("ìŠ¤ìŠ¤ë¡œì—ê²Œ ì˜ë ¤ë©´ 0ì„, ë”œëŸ¬ì—ê²Œ ì˜ë ¤ë©´ 1ì„ ëˆ„ë¥´ì‹œì˜¤.\n");
+    printf("½º½º·Î¿¡°Ô ½î·Á¸é 0À», µô·¯¿¡°Ô ½î·Á¸é 1À» ´©¸£½Ã¿À.\n");
     scanf("%d", &shootToWho);
     
     Fire(shootToWho);
@@ -752,7 +752,7 @@ void Fire(int dealerOrPlayer)
 
     if(shotgun[0] == 0 && dealerOrPlayer == player)
     {
-        printf("\ní‹±!\n(ê²©ë°œë˜ì§€ ì•ŠìŒ)\n");
+        printf("\nÆ½!\n(°İ¹ßµÇÁö ¾ÊÀ½)\n");
         ShotgunPumping(shotgun, index);
 
         isPlayerTurn = true;
@@ -778,7 +778,7 @@ void Fire(int dealerOrPlayer)
 
     else if(shotgun[0] == 0 && dealerOrPlayer == dealer)
     {
-        printf("\ní‹±!\n(ê²©ë°œë˜ì§€ ì•ŠìŒ)\n");
+        printf("\nÆ½!\n(°İ¹ßµÇÁö ¾ÊÀ½)\n");
         ShotgunPumping(shotgun, index);
 
         isPlayerTurn = false;
@@ -820,11 +820,11 @@ void DealerFire(int dealerOrPlayer)
 
     if(shotgun[0] == 0 && dealerOrPlayer == player)
     {
-        printf("ë”œëŸ¬ëŠ” ë‚˜ë¥¼ í–¥í•´ì„œ ìˆë‹¤.\n");
+        printf("µô·¯´Â ³ª¸¦ ÇâÇØ¼­ ½ú´Ù.\n");
 
         sleep(1);
 
-        printf("\ní‹±!\n(ê²©ë°œë˜ì§€ ì•ŠìŒ)\n");
+        printf("\nÆ½!\n(°İ¹ßµÇÁö ¾ÊÀ½)\n");
 
         ShotgunPumping(shotgun, index);
 
@@ -836,7 +836,7 @@ void DealerFire(int dealerOrPlayer)
 
     else if(shotgun[0] == 1 && dealerOrPlayer == player)
     {
-        printf("ë”œëŸ¬ëŠ” ë‚˜ë¥¼ í–¥í•´ì„œ ìˆë‹¤.\n");
+        printf("µô·¯´Â ³ª¸¦ ÇâÇØ¼­ ½ú´Ù.\n");
 
         sleep(1);
 
@@ -863,11 +863,11 @@ void DealerFire(int dealerOrPlayer)
 
     else if(shotgun[0] == 0 && dealerOrPlayer == dealer)
     {
-        printf("ë”œëŸ¬ëŠ” ìŠ¤ìŠ¤ë¡œë¥¼ í–¥í•´ì„œ ìˆë‹¤.\n");
+        printf("µô·¯´Â ½º½º·Î¸¦ ÇâÇØ¼­ ½ú´Ù.\n");
 
         sleep(1);
 
-        printf("\ní‹±!\n(ê²©ë°œë˜ì§€ ì•ŠìŒ)\n");
+        printf("\nÆ½!\n(°İ¹ßµÇÁö ¾ÊÀ½)\n");
 
         ShotgunPumping(shotgun, index);
 
@@ -879,7 +879,7 @@ void DealerFire(int dealerOrPlayer)
 
     else if(shotgun[0] == 1 && dealerOrPlayer == dealer)
     {
-        printf("ë”œëŸ¬ëŠ” ìŠ¤ìŠ¤ë¡œë¥¼ í–¥í•´ì„œ ìˆë‹¤.\n");
+        printf("µô·¯´Â ½º½º·Î¸¦ ÇâÇØ¼­ ½ú´Ù.\n");
 
         sleep(1);
 
@@ -905,7 +905,6 @@ void DealerFire(int dealerOrPlayer)
 
 void Bang()
 {
-    #include <stdio.h>
   printf("88                                              \n");
   printf("88                                              \n");
   printf("88                                              \n");
@@ -928,10 +927,10 @@ void CheckHandcuffs()
         isPlayerTurn = true;
     }
 
-    else if(isPlayerTurn && isHandcuffs)
+    if(isPlayerTurn && isHandcuffs)
     {
-        isHandcuffs = false;
-        isPlayerTurn = false;
+        isHandcuffs = true;
+        isPlayerTurn = true;
     }
 }
 
@@ -941,7 +940,7 @@ void RepairShotgun()
 
     if(isCut)
     {
-        printf("\nìƒ·ê±´ì´ ìˆ˜ë¦¬ë˜ì—ˆë‹¤.\n");
+        printf("\n¼¦°ÇÀÌ ¼ö¸®µÇ¾ú´Ù.\n");
     }
 }
 
@@ -951,11 +950,11 @@ void Dead()
     {
         sleep(3);
 
-        printf("\n\n\n\n\n???: ì œì„¸ë™ê¸°ê°€ ì¶©ì „ë˜ì–´ì„œ ë‹¤í–‰ì´ì•¼, í•˜ë§ˆí„°ë©´ ì£½ì„ ë»” í–ˆì–´.\n");
+        printf("\n\n\n\n\n???: Á¦¼¼µ¿±â°¡ ÃæÀüµÇ¾î¼­ ´ÙÇàÀÌ¾ß, ÇÏ¸¶ÅÍ¸é Á×À» »· Çß¾î.\n");
 
         sleep(1);
 
-        printf("???: ëª©ìˆ¨ ê°’ì€ ì™¸ìƒìœ¼ë¡œ ë°›ì•„ ë‘ì§€. ì•„ì§ ë°¤ì€ ê¸¸ì–´. ì¶©ë¶„íˆ í•´ë‚¼ ìˆ˜ ìˆì„ê±°ì•¼.\n\n");
+        printf("???: ¸ñ¼û °ªÀº ¿Ü»óÀ¸·Î ¹Ş¾Æ µÎÁö. ¾ÆÁ÷ ¹ãÀº ±æ¾î. ÃæºĞÈ÷ ÇØ³¾ ¼ö ÀÖÀ»°Å¾ß.\n\n");
 
         sleep(2);
 
@@ -1002,9 +1001,9 @@ void Dead()
 
 void YouWin()
 {
-    printf("Dealer: ì¶•í•˜í•˜ë„¤. ë„¤ê°€ ì´ê²¼ì–´.\n");
+    printf("Dealer: ÃàÇÏÇÏ³×. ³×°¡ ÀÌ°å¾î.\n");
     sleep(1);
-    printf("Dealer: ìƒê¸ˆì„ ë°›ê²Œ.\n");
+    printf("Dealer: º¸»óÀ» ¹Ş°Ô.\n");
     sleep(2);
 
     printf("||====================================================================||\n");
