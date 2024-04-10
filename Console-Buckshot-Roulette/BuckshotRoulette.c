@@ -17,7 +17,8 @@ int howManyItems = 2;
 
 int shotgunDmg = 1;
 bool isCut = false;
-bool isHandcuffs = false;
+bool isHandscuffsOfPlayer = false;
+bool isHandscuffsOfDealer = false;
 
 int blankShell;
 int liveShell;
@@ -114,18 +115,22 @@ void StartScene()
 
 void BUCKSHOT_ROULETTE()
 {
-    printf("???     ?   ???    ?  ??  ?????    ?  ? ?????    ????? \n");
-    printf("?  ?     ?  ?? ??  ???   ?     ?? ?   ? ?   ? ??? ?    \n");
-    printf("? ? ? ?   ? ?   ?  ??? ?  ?????   ????? ?   ?     ?    \n");
-    printf("?  ?? ?   ? ??  ?? ?  ? ??????    ?   ? ?????    ?     \n");
-    printf("???   ?? ?? ?????    ?               ?          ?       \n");
-    printf("       ???          ?               ?                  \n");
-    printf("????? ?????   ?   ?     ?????     ????? ????? ????? \n");
-    printf("?  ?? ?   ?    ?  ?     ??   ? ??? ? ??? ?    ??   ?   \n");
-    printf("????  ?   ? ?   ? ?     ????       ?     ?    ????     \n");
-    printf("?  ?  ????? ?   ? ????  ??   ??   ?     ?     ??   ??  \n");
-    printf("?          ?? ??     ? ?????    ?     ?      ?????    \n");
-    printf("?           ???\n");
+    printf("'########::'##::::'##::'######::'##:::'##::'######::'##::::'##::'#######::'########:\n");
+    printf(" ##.... ##: ##:::: ##:'##... ##: ##::'##::'##... ##: ##:::: ##:'##.... ##:... ##..::\n");
+    printf(" ##:::: ##: ##:::: ##: ##:::..:: ##:'##::: ##:::..:: ##:::: ##: ##:::: ##:::: ##::::\n");
+    printf(" ########:: ##:::: ##: ##::::::: #####::::. ######:: #########: ##:::: ##:::: ##::::\n");
+    printf(" ##.... ##: ##:::: ##: ##::::::: ##. ##::::..... ##: ##.... ##: ##:::: ##:::: ##::::\n");
+    printf(" ##:::: ##: ##:::: ##: ##::: ##: ##:. ##::'##::: ##: ##:::: ##: ##:::: ##:::: ##::::\n");
+    printf(" ########::. #######::. ######:: ##::. ##:. ######:: ##:::: ##:. #######::::: ##::::\n");
+    printf("........::::.......::::......:::..::::..:::......:::..:::::..:::.......::::::..:::::\n");
+    printf("'########:::'#######::'##::::'##:'##:::::::'########:'########:'########:'########::\n");
+    printf(" ##.... ##:'##.... ##: ##:::: ##: ##::::::: ##.....::... ##..::... ##..:: ##.....:::\n");
+    printf(" ##:::: ##: ##:::: ##: ##:::: ##: ##::::::: ##:::::::::: ##::::::: ##:::: ##::::::::\n");
+    printf(" ########:: ##:::: ##: ##:::: ##: ##::::::: ######:::::: ##::::::: ##:::: ######::::\n");
+    printf(" ##.. ##::: ##:::: ##: ##:::: ##: ##::::::: ##...::::::: ##::::::: ##:::: ##...:::::\n");
+    printf(" ##::. ##:: ##:::: ##: ##:::: ##: ##::::::: ##:::::::::: ##::::::: ##:::: ##::::::::\n");
+    printf(" ##:::. ##:. #######::. #######:: ########: ########:::: ##::::::: ##:::: ########::\n");
+    printf("..:::::..:::.......::::.......:::........::........:::::..::::::::..:::::........:::\n");
 }
 
 void RoundOne()
@@ -193,7 +198,6 @@ void RoundTwo()
 
     while(playerHP > 0 || dealerHP > 0)
     {
-
         if((playerHP > 0 || dealerHP > 0) && shotgun[0] >= 2)
         {
             Reload();
@@ -606,7 +610,7 @@ void UseItem()
     if(strcmp(playerItem[usingItem], "¼ö°©") == 0)
     {
         printf("\n¼ö°©À» »ç¿ëÇÏ¿´´Ù.\n");
-        isHandcuffs = true;
+        isHandscuffsOfPlayer = true;
     }
 
     if(playerItem[usingItem] == NULL)
@@ -710,11 +714,11 @@ void DealerUseItem()
             printf("\nDealer's Life Points: %d | %s's Life Points: %d\n\n", dealerHP, playerName, playerHP);
         }
 
-        if (!isHandcuffs && strcmp(dealerItem[i], "¼ö°©") == 0)
+        if (!isHandscuffsOfDealer && strcmp(dealerItem[i], "¼ö°©") == 0)
         {
             printf("\nµô·¯´Â ¼ö°©À» »ç¿ëÇÏ¿´´Ù.\n");
 
-            isHandcuffs = true;
+            isHandscuffsOfDealer = true;
 
             sleep(2);
         }
@@ -921,16 +925,28 @@ void Bang()
 
 void CheckHandcuffs()
 {
-    if(!isPlayerTurn && isHandcuffs)
+    if(!isPlayerTurn && isHandscuffsOfPlayer)
     {
-        isHandcuffs = false;
+        isHandscuffsOfPlayer = false;
         isPlayerTurn = true;
     }
 
-    if(isPlayerTurn && isHandcuffs)
+    if(isPlayerTurn && isHandscuffsOfPlayer)
     {
-        isHandcuffs = true;
+        isHandscuffsOfPlayer = true;
         isPlayerTurn = true;
+    }
+
+    if(!isPlayerTurn && isHandscuffsOfDealer)
+    {
+        isHandscuffsOfDealer = true;
+        isPlayerTurn = false;
+    }
+
+    if(isPlayerTurn && isHandscuffsOfDealer)
+    {
+        isHandscuffsOfDealer = false;
+        isPlayerTurn = false;
     }
 }
 
