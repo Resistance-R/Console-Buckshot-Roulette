@@ -148,6 +148,11 @@ void RoundOne()
 
     while(playerHP > 0 || dealerHP > 0)
     {
+        if(playerHP <= 0)
+        {
+            break;
+        }
+
         if((playerHP > 0 || dealerHP > 0) && shotgun[0] >= 2)
         {
             Reload();
@@ -156,11 +161,6 @@ void RoundOne()
         if(playerHP > 0 && isPlayerTurn)
         {
             PlayerTurn();
-        }
-
-        if(playerHP <= 0)
-        {
-            break;
         }
 
         else if(dealerHP > 0 && !isPlayerTurn)
@@ -198,6 +198,11 @@ void RoundTwo()
 
     while(playerHP > 0 || dealerHP > 0)
     {
+        if(playerHP <= 0)
+        {
+            break;
+        }
+
         if((playerHP > 0 || dealerHP > 0) && shotgun[0] >= 2)
         {
             Reload();
@@ -206,11 +211,6 @@ void RoundTwo()
         if(playerHP > 0 && isPlayerTurn)
         {
             PlayerTurn();
-        }
-
-        if(playerHP <= 0)
-        {
-            break;
         }
 
         else if(dealerHP > 0 && !isPlayerTurn)
@@ -252,6 +252,11 @@ void RoundThree()
 
     while (playerHP > 0 || dealerHP > 0)
     {
+        if(playerHP <= 0)
+        {
+            break;
+        }
+
         if(dealerHP <= 0)
         {
             YouWin();
@@ -266,11 +271,6 @@ void RoundThree()
         if(playerHP > 0 && isPlayerTurn)
         {
             PlayerTurn();
-        }
-
-        if(playerHP <= 0)
-        {
-            break;
         }
 
         else if(dealerHP > 0 && !isPlayerTurn)
@@ -996,20 +996,22 @@ void Dead()
     if(alreadyDead || roundNum >= 3)
     {
         printf("                       ______\n");
-        printf("                    .-"      "-.\n");
+        printf("                    .-\"      \"-.\n");
         printf("                   /            \\\n");
         printf("       _          |              |          _\n");
         printf("      ( \\         |,  .-.  .-.  ,|         / )\n");
         printf("       > \"=._     | )(__/  \\__)( |     _.=\" <\n");
-        printf("(_/\"=._\"=._ |/     /\\     \\| _.=\"_.=\"\\_)\n");
+        printf("      (_/\"=._\"=._ | /   /  \\   \\ | _.=\"_.=\"\\_)\n");
         printf("             \"=._ (_     ^^     _)\"_.=\"\n");
         printf("                 \"=\\__|IIIIII|__/=\"\n");
         printf("                _.=\"| \\IIIIII/ |\"=._\n");
-        printf("    _     _.=\"_.=\"\\          /\"=._\"=._     _\n");
-        printf("    ( \\_.=\"_.=\"     `--------`     \"=._\"=._/ )\n");
-        printf("    > _.="                            "=._ <\n");
-        printf("    (_/                                    \\_)\n");
+        printf("      _     _.=\"_.=\"\\          /\"=._\"=._     _\n");
+        printf("     ( \\_.=\"_.=\"     `--------`     \"=._\"=._/ )\n");
+        printf("      > _.=\"                            \"=._ <\n");
+        printf("      (_/                                   \\_)\n");
         printf("YOU ARE DEAD.\n");
+
+        return;
 
         return;
     }
@@ -1023,19 +1025,19 @@ void YouWin()
     sleep(2);
 
     printf("||====================================================================||\n");
-    printf("||//$\\\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\//$\\||\n");
+    printf("||//$\\\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\//$\\\\||\n");
     printf("||(100)==================| FEDERAL RESERVE NOTE |================(100)||\n");
-    printf("||\\$//        ~         '------========--------'                \\$//||\n");
-    printf("||<< /        /$\\              // ____ \\                         \\ >>||\n");
-    printf("||>>|  12    //L\\            // ///..) \\         L38036133B   12 |<<||\n");
-    printf("||<<|        \\ //           || <||  >\\  ||                        |>>||\n");
-    printf("||>>|         \\$/            ||  $$ --/  ||        One Hundred     |<<||\n");
-    printf("||<<|      L38036133B        *\\  |\\_/  //* series                 |>>||\n");
-    printf("||>>|  12                     *\\/___\\_//*   1989                  |<<||\n");
+    printf("||\\\\$//        ~         '------========--------'                \\\\$//||\n");
+    printf("||<< //        /$\\            // ____ \\\\                         \\\\ >>||\n");
+    printf("||>>|  12    //L\\            // ///..) \\\\        L38036133B     12 |<<||\n");
+    printf("||<<|        \\ //            || <||  >\\ ||                         |>>||\n");
+    printf("||>>|         \\$/            ||  $$ --/ ||         One Hundred     |<<||\n");
+    printf("||<<|      L38036133B        *\\  |\\_/  //* series                  |>>||\n");
+    printf("||>>|  12                     *\\/___\\_//*   1989                   |<<||\n");
     printf("||<<\\      Treasurer     ______/Franklin\\________     Secretary 12 />>||\n");
-    printf("||//$\\                 ~|UNITED STATES OF AMERICA|~               /$\\||\n");
+    printf("||/$\\\\                 ~|UNITED STATES OF AMERICA|~               //$\\||\n");
     printf("||(100)===================  ONE HUNDRED DOLLARS =================(100)||\n");
-    printf("||//$\\\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\//$\\||\n");
+    printf("||//$\\\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\//$\\\\||\n");
     printf("||====================================================================||\n\n");
 
     printf("YOU WIN.\n");
