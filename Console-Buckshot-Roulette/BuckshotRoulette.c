@@ -642,104 +642,120 @@ void DealerUseItem()
 
     int index = 0;
 
-        for (int i = 1; i < 9; i++)
+    for (int i = 1; i < 9; i++)
+    {
+        bool dealerItemUsed = false;
+
+        if(!alreadyFire)
         {
-            if(!alreadyFire)
+
+            if(dealerItem[i] == NULL)
             {
+                continue;
+            }
 
-                if(dealerItem[i] == NULL)
+            if(!alreadyFire && strcmp(dealerItem[i], "돋보기") == 0)
+            {
+                printf("\n딜러는 돋보기를 사용했다.\n");
+                printf("Dealer: 참 흥미롭군...\n");
+
+                sleep(2);
+
+                if(shotgun[0] == 0)
                 {
-                    continue;
+                    DealerFire(dealer);
                 }
 
-                if(!alreadyFire && strcmp(dealerItem[i], "돋보기") == 0)
+                if(shotgun[0] == 1)
                 {
-                    printf("\n딜러는 돋보기를 사용했다.\n");
-                    printf("Dealer: 참 흥미롭군...\n");
-
-                    sleep(2);
-
-                    if(shotgun[0] == 0)
-                    {
-                        DealerFire(dealer);
-                    }
-
-                    if(shotgun[0] == 1)
-                    {
-                        DealerFire(player);
-                    }
+                    DealerFire(player);
                 }
 
-                if(strcmp(dealerItem[i], "캔 맥주") == 0)
+                dealerItemUsed = true;
+            }
+
+            if(strcmp(dealerItem[i], "캔 맥주") == 0)
+            {
+                printf("\n딜러는 캔 맥주를 사용했다.\n");
+
+                sleep(2);
+
+                if(shotgun[0] == 0)
                 {
-                    printf("\n딜러는 캔 맥주를 사용했다.\n");
-
-                    sleep(2);
-
-                    if(shotgun[0] == 0)
-                    {
-                        printf("\n공탄이 튀어나왔다.\n");
-                        blankShell--;
-                    }
-
-                    if(shotgun[0] == 1)
-                    {
-                        printf("\n실탄이 튀어나왔다.\n");
-                        liveShell--;
-                    }
-
-                    ShotgunPumping(shotgun, index);
+                    printf("\n공탄이 튀어나왔다.\n");
+                    blankShell--;
                 }
 
-                if(!isCut && liveShell >= blankShell && strcmp(dealerItem[i], "톱") == 0)
+                if(shotgun[0] == 1)
                 {
-                    printf("\n딜러는 총열을 톱으로 잘랐다.\n");
-
-                    isCut = true;
-
-                    sleep(2);
+                    printf("\n실탄이 튀어나왔다.\n");
+                    liveShell--;
                 }
 
-                if(dealerHP <= 3 && strcmp(dealerItem[i], "담배") == 0)
+                ShotgunPumping(shotgun, index);
+
+                dealerItemUsed = true;
+            }
+
+            if(!isCut && liveShell >= blankShell && strcmp(dealerItem[i], "톱") == 0)
+            {
+                printf("\n딜러는 총열을 톱으로 잘랐다.\n");
+
+                isCut = true;
+
+                sleep(2);
+
+                dealerItemUsed = true;
+            }
+
+            if(dealerHP <= 3 && strcmp(dealerItem[i], "담배") == 0)
+            {
+                printf("\n딜러는 담배를 사용했다.\n");
+
+                if(roundNum >= 3)
                 {
-                    printf("\n딜러는 담배를 사용했다.\n");
-
-                    if(roundNum >= 3)
-                    {
-                        if(dealerHP > 6)
-                        {
-                            dealerHP--;
-                        }
-
-                        if(dealerHP <= 2)
-                        {
-                            dealerHP--;
-                        }
-                    }
-
-                    dealerHP++;
-
-                    if(roundNum == 2 && dealerHP > 4)
+                    if(dealerHP > 6)
                     {
                         dealerHP--;
                     }
 
-                    sleep(2);
-
-                    printf("\nDealer's Life Points: %d | %s's Life Points: %d\n\n", dealerHP, playerName, playerHP);
+                    if(dealerHP <= 2)
+                    {
+                        dealerHP--;
+                    }
                 }
 
-                if(!isHandscuffsOfDealer && strcmp(dealerItem[i], "수갑") == 0)
+                dealerHP++;
+
+                if(roundNum == 2 && dealerHP > 4)
                 {
-                    printf("\n딜러는 수갑을 사용하였다.\n");
-
-                    isHandscuffsOfDealer = true;
-
-                    sleep(2);
+                    dealerHP--;
                 }
 
-                dealerItem[i] = NULL;
+                sleep(2);
+
+                printf("\nDealer's Life Points: %d | %s's Life Points: %d\n\n", dealerHP, playerName, playerHP);
+
+                dealerItemUsed = true;
             }
+
+            if(!isHandscuffsOfDealer && strcmp(dealerItem[i], "수갑") == 0)
+            {
+                printf("\n딜러는 수갑을 사용하였다.\n");
+
+                isHandscuffsOfDealer = true;
+
+                sleep(2);
+
+                dealerItemUsed = true;
+            }
+
+            if (dealerItemUsed && dealerItem[i] != NULL)
+            {
+                dealerItem[i] = NULL;
+                dealerItemUsed = false;
+            }
+        }
     }
     
     return;
