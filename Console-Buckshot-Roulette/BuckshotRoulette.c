@@ -1043,7 +1043,7 @@ void Dead()
         printf("      (_/                                   \\_)\n");
         printf("YOU ARE DEAD.\n");
 
-        return;
+        sleep(10);
 
         return;
     }
@@ -1073,6 +1073,8 @@ void YouWin()
     printf("||====================================================================||\n\n");
 
     printf("YOU WIN.\n");
+
+    sleep(10);
 
     return;
 }
