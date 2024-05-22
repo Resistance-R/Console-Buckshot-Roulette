@@ -165,7 +165,7 @@ void RoundOne()
 
         alreadyFire = false;
 
-        if (dealerHP > 0 && !isPlayerTurn)
+        if (dealerHP > 0 && playerHP > 0 && !isPlayerTurn)
         {
             DealerTurn();
         }
@@ -217,7 +217,7 @@ void RoundTwo()
 
         alreadyFire = false;
 
-        if (dealerHP > 0 && !isPlayerTurn)
+        if (dealerHP > 0 && playerHP > 0 && !isPlayerTurn)
         {
             DealerTurn();
         }
@@ -280,7 +280,7 @@ void RoundThree()
 
         alreadyFire = false;
 
-        if (dealerHP > 0 && !isPlayerTurn)
+        if (dealerHP > 0 && playerHP > 0 && !isPlayerTurn)
         {
             DealerTurn();
         }
